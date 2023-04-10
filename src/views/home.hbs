@@ -1,0 +1,39 @@
+    <h2>Sua Quan ao</h2>
+  
+
+ <form action="/trangchu/{{quanaos._id}}/edit?_method=PUT" method="post">
+  <div class="form-group">
+    <label for="Name">Name</label>
+    <input type="text" class="form-control" id="Name" placeholder="Enter Your Name" name="namesp" value="{{quanaos.namesp}}">
+
+  </div>
+  <div class="form-group">
+    <label for="image">image</label>
+    <input type="text" class="form-control" id="Adress" placeholder="image" name="image" value="{{quanaos.image}}">
+  </div>
+    <div class="form-group">
+    <label for="Salary">dơn giá</label>
+    <input type="number" class="form-control" id="Salry" placeholder="Salary" name="dongia" value="{{quanaos.dongia}}">
+  </div>
+     <div class="form-group">
+    <label for="Salary">loai san pham</label>
+    <input type="text" class="form-control" id="Salry" placeholder="loai sna pham" name="loaisanpham" value="{{quanaos.loaisanpham}}">
+  </div>
+     <div class="form-group">
+    <label for="Salary">ten khach hang</label>
+    <input type="text" class="form-control" id="Salry" placeholder="ten khach hang" name="tenkhachhang" value="{{quanaos.tenkhachhang}}">
+  </div>
+      <div class="form-group">
+    <label for="Salary">mo ta san pham</label>
+    <input type="text" class="form-control" id="Salry" placeholder="ten khach hang" name="description" value="{{quanaos.description}}">
+  </div>
+    </div>
+
+   
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+</form>
+

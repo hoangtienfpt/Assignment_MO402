@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <title>Login Page</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Quan ao </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                   <li class="nav-item active">
+                    <a class="nav-link" href="/account/listuser">List User </a>
+                </li>
+                <li class="nav-item">
+                    <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1" data-whatever="@mdo">Thêm Sản Phẩm</button>
+
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New sản phẩm</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <form action="/trangchu/add" method="POST">
+  <div class="form-group">
+    <label for="Name">Name</label>
+    <input type="text" class="form-control" id="Name" placeholder="Enter Your Name" name="namesp">
+
+  </div>
+  <div class="form-group">
+    <label for="image">image</label>
+    <input type="text" class="form-control" id="Adress" placeholder="image" name="image">
+  </div>
+    <div class="form-group">
+    <label for="Salary">dơn giá</label>
+    <input type="number" class="form-control" id="Salry" placeholder="Salary" name="dongia">
+  </div>
+     <div class="form-group">
+    <label for="Salary">loai san pham</label>
+    <input type="text" class="form-control" id="Salry" placeholder="loai sna pham" name="loaisanpham">
+  </div>
+     <div class="form-group">
+    <label for="Salary">ten khach hang</label>
+    <input type="text" class="form-control" id="Salry" placeholder="ten khach hang" name="tenkhachhang">
+  </div>
+      <div class="form-group">
+    <label for="Salary">mo ta san pham</label>
+    <input type="text" class="form-control" id="Salry" placeholder="ten khach hang" name="description">
+  </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Send data</button>
+      </div>
+</form>
+      
+      
+      </div>
+
+    </div>
+  </div>
+</div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="/account/login">Dang xuat</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    <div class="mt-4"></div>
+    <div class="row">
+         {{#each quanaos}}
+        <div class="col-sm-8 col-md-3">
+            <div class="card" style="width: 18rem;">
+               <a href="/trangchu/{{this._id}}"><button  style="margin: 10px; border: none;" data-toggle="modal" data-target="#exampleModalLong">
+
+ <img style="width: 250px ;height: 250px  ;"   src="{{this.image}}" class="card-img-top" alt="..."></button> </a>
+              
+                <div class="card-body">
+                    <h5 class="card-title">{{this.namesp}}</h5>
+                    <p class="card-text">{{this.dongia}}</p>
+                  
+                    <p class="card-text">{{this.description}}</p>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Bye Now</button>
+<button type="button"  class="btn btn-danger" data-toggle="modal" data-target="#deletenhanvienmodel" data-id="{{this._id}}">
+  xóa
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="deletenhanvienmodel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        bạn có chắc sẽ xóa bản ghi này?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary" id="btndeletequanao">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" class="btn btn-warning"><a href="/trangchu/{{this._id}}/edit">sua</a></button>
+                </div>
+            </div>
+
+        </div>
+    {{/each}}
+    
+
+    </div>
+
+
+    </div>
+    <div class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <form  method="post" name="delete_staff"></form>
+    {{{body}}}
+   
+
+</body>
+
+</html>
+<script>
+  var id
+  $('#deletenhanvienmodel').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) 
+  id = button.data('id')
+  console.log(id)
+
+})
+var deleteform =document.forms['delete_staff']
+console.log(deleteform)
+var btndeleteid = document.getElementById('btndeletequanao')
+
+console.log(btndeleteid)
+btndeleteid.onclick = function(){
+    deleteform.action = `/trangchu/${id}/delete?_method=DELETE`
+    deleteform.submit();
+ 
+}
+</script>
